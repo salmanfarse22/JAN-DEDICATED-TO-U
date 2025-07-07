@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For My Pookie 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffc0cb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      transition: background-color 0.6s ease;
+      overflow: hidden;
+      flex-direction: column;
+    }
+    .envelope-container {
+      text-align: center;
+      cursor: pointer;
+    }
+    .envelope {
+      width: 150px;
+      height: 100px;
+      background-color: #fff;
+      border: 2px solid #ff69b4;
+      border-radius: 10px;
+      position: relative;
+      margin: 0 auto;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #ff69b4;
+      border-radius: 10px 10px 0 0;
+    }
+    .text {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #d63384;
+      animation: pulse 1s infinite;
+      user-select: none;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .photo-frame {
+      border: 8px solid #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      max-width: 90vw;
+      max-height: 70vh;
+      margin-top: 20px;
+    }
+    .caption, .swipe-hint {
+      margin-top: 20px;
+      font-size: 2rem;
+      color: #d63384;
+      text-align: center;
+      user-select: none;
+    }
+    .swipe-hint {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      animation: pulse 1.2s infinite;
+      cursor: pointer;
+    }
+    .love-message {
+      margin-top: 30px;
+      font-size: 1.4rem;
+      color: #8b005d;
+      text-align: center;
+      padding: 0 20px;
+      display: none;
+      max-width: 600px;
+      line-height: 1.6;
+      user-select: text;
+    }
+  </style>
+</head>
+<body>
+  <audio id="bg-music" autoplay loop>
+    <source src="/mnt/data/Shaky (Official Video) Sanju Rathod Ft. Isha Malviya  G-Spark  New Marathi Songs 2025.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="envelope-container" onclick="openEnvelope()">
+    <div class="envelope"></div>
+    <div class="text">Click it to continue 💌</div>
+  </div>
+
+  <script>
+    function openEnvelope() {
+      document.body.style.backgroundColor = '#fff0f5';
+
+      const container = document.querySelector('.envelope-container');
+      container.innerHTML = `
+        <img src="/mnt/data/WhatsApp Image 2025-06-19 at 20.06.58_0d698aa3.jpg" alt="Our Photo" class="photo-frame" />
+        <div class="caption">For u my jan 💖</div>
+        <div class="swipe-hint" onclick="toggleLoveMessage(event)">Swipe for more ➡️</div>
+        <div class="love-message" id="loveMessage">
+          <p>To my dearest Pookie 🐻,<br><br>
+          You're the light in my darkest days, the warmth in my coldest nights, and the smile that never leaves my mind. Every moment with you feels like a soft melody playing on loop in my heart. I made this little space just for you, because you deserve a whole world of love 💘<br><br>
+          Love always,<br>
+          Your PookieBoy 💌</p>
+        </div>
+      `;
+    }
+
+    function toggleLoveMessage(event) {
+      event.stopPropagation();
+      const loveMsg = document.getElementById('loveMessage');
+      if (loveMsg.style.display === 'block') {
+        loveMsg.style.display = 'none';
+        event.target.textContent = 'Swipe for more ➡️';
+      } else {
+        loveMsg.style.display = 'block';
+        event.target.textContent = 'Hide message ⬅️';
+      }
+    }
+  </script>
+</body>
+</html>
